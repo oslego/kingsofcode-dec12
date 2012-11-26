@@ -127,13 +127,92 @@
                 </section>
 
 				<section>
-					<h1>Adobe &amp; Digital Publishing</h1>
+					<h1>HTML &amp; CSS</h1>
 				</section>
+				
+                <section>
+                    <h2>Advantages</h2>
+                    <ul>
+                        <li>naturally adaptive</li>
+                        <li>widespread support</li>
+                        <li>Media Queries, lots of web standards</li>
+                        <li>plain, open format</li>
+                        <li>no App Store</li>
+                    </ul>
+                </section>
                 
-				<section>
-					<h1>Adaptive: HTML CSS</h1>
-				</section>
+                <section>
+                    <h2>What's missing</h2>
+                    <ul>
+                        <li>rich layout</li>
+                        <li>overflow control</li>
+                        <li>complex shapes</li>
+                        <li>text wrap</li>
+                    </ul>
+                </section> 
+                
+                <section>
+                    <h1>CSS Regions</h1>
+                </section>
+                
+                <section>
+                    <p>[FLOW Illustration]</p>
+                </section>
+                
+                <section>
+                    <p>[NAMED FLOW / REGION illustration]</p>
+                    <p>[DOCUMENT FLOW breakdown]</p>
+                </section>
+                
+                <section>
+                    <pre><code>
+    #content {
+        /* put content into a named flow */
+        flow-into: myFlow;
+    }
 
+    .region {
+        /* render the content from the named flow */
+        flow-from: myFlow;
+    }
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Aggregate content</h2>
+                    <pre><code>
+    article h1, 
+    article img,
+    article p:nth-child(1) {
+        /* put content into a named flow */
+        flow-into: preview;
+    }
+
+    #first-page {
+        /* render the content from the named flow */
+        flow-from: preview;
+    }
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Separation of Markup</h2>
+                    <pre><code>
+    &lt;!-- content: semantic markup --&gt;
+    &lt;article&gt; 
+        &lt;h1&gt;Title&lt;/h1&gt;
+        &lt;p&gt;...&lt;/p&gt;    
+    &lt;/article&gt;
+
+    &lt;!-- layout: helper markup --&gt;
+    &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;
+
+                    </code></pre>
+                </section>
+                
+                
 				<section data-markdown>
 					<script type="text/template">
 						## Markdown support
