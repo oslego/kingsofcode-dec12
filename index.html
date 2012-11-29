@@ -13,7 +13,6 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 		<link rel="stylesheet" href="css/theme/adobe.css" id="theme">
 
 		<!-- For syntax highlighting -->
@@ -27,6 +26,8 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+		
+		<script src="http://use.edgefonts.net/lato.js"></script>
 	</head>
 
 	<body>
@@ -38,7 +39,7 @@
 
 				<section>
 					<h1>Digital Publishing on the Web</h1>
-					<h3>CSS Regions, Exclusions and beyond</h3>
+					<h3>CSS Regions, CSS Exclusions and beyond</h3>
 					<p>
 						<small><a href="http://razvancaliman.com">Razvan Caliman</a> / <a href="http://twitter.com/razvancaliman">@razvancaliman</a></small>
 					</p>
@@ -133,9 +134,10 @@
                 <section>
                     <h2>Advantages</h2>
                     <ul>
-                        <li>naturally adaptive</li>
                         <li>widespread support</li>
-                        <li>Media Queries, lots of web standards</li>
+                        <li>naturally adaptive</li>
+                        <li>Media Queries</li>   
+                        <li>lots of web standards</li>
                         <li>plain, open format</li>
                         <li>no App Store</li>
                     </ul>
@@ -151,23 +153,26 @@
                     </ul>
                 </section> 
                 
-                <section>
+                <section data-state="regionsbg">
                     <h1>CSS Regions</h1>
+                    <img src="resources/cssregions-illustration.png" alt="" width="50%" />
                 </section>
                 
-                <section>
-                    <p>[FLOW Illustration]</p>
+                <section data-state="regionsbg">
+                    <p>
+                        <img src="resources/slide_cssregions" alt="" width="100%" />
+                    </p>
                 </section>
                 
-                <section>
+                <section data-state="regionsbg">
                     <p>[NAMED FLOW / REGION illustration]</p>
                     <p>[DOCUMENT FLOW breakdown]</p>
                 </section>
                 
-                <section>
+                <section data-state="regionsbg">
                     <pre><code>
-    #content {
-        /* put content into a named flow */
+    article {
+        /* collect content into a named flow */
         flow-into: myFlow;
     }
 
@@ -178,25 +183,33 @@
                     </code></pre>
                 </section>
 
-                <section>
+                <section data-state="regionsbg">
                     <h2>Aggregate content</h2>
                     <pre><code>
     article h1, 
     article img,
     article p:nth-child(1) {
-        /* put content into a named flow */
+        /* collect content into a named flow */
         flow-into: preview;
     }
 
-    #first-page {
+    .region {
         /* render the content from the named flow */
         flow-from: preview;
     }
                     </code></pre>
                 </section>
+                
+                <section data-state='alert'>
+                    <h2><small>Regions are only</small> <br />Visual Containers</h2>
+                    <aside class="notes">
+                        No DOM manipulation (parentNode). <br />
+                        No CSS inheritance
+                    </aside>
+                </section>
 
-                <section>
-                    <h2>Separation of Markup</h2>
+                <section data-state="regionsbg">
+                    <h2>Markup Separation</h2>
                     <pre><code>
     &lt;!-- content: semantic markup --&gt;
     &lt;article&gt; 
@@ -207,98 +220,198 @@
     &lt;!-- layout: helper markup --&gt;
     &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;  
 
                     </code></pre>
                 </section>
                 
+                <section data-state="regionsbg">
+                    <h1>Regions <em>&amp;</em> <br /> JavaScript</h1>
+                </section>
                 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-							<section data-markdown>
-							  ## Markdown support
-							  For those of you who like that sort of thing.
-							  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-							</section>
-					</script>
-				</section>
+                <section data-state="regionsbg">
+                    <h2>CSS Object Model</h2>
+                    <pre><code>
+    var flows = document.getNamedFlows()
+    var flow = flows['myFlow']
+    
+    // Content collected in the named flow
+    flow.contentNodes
 
-				<section data-state="blackout">
-					<section>
-						<h2>"blackout"</h2>
-					</section>
-				</section>
+    // Get the regions that render the content
+    flow.getRegions()
 
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
+                    </code></pre>
+                </section>
+
+                <section data-state="regionsbg">
+                    <h2>Does it fit?</h2>
+                    <pre><code>
+    var flows = document.getNamedFlows()
+    var flow = flows['myFlow']
+    
+    // {Boolean} is there more content than regions?
+    flow.overset
+
+    // Add more regions if necesary
+    flow.addEventListener('regionlayoutupdate', function(){
+        if (flow.overset){
+            // add more regions
+        }
+    })
+                    </code></pre>
+                </section>
+                
+                <section data-state="regionsbg">
+                    <h1>Status</h1>
+
+                    <div class="fragment">
+                        <hr />
+                        <h2>Web Standard</h2>
+                        <p><a href="http://www.w3.org/TR/css3-regions/">W3C Working Draft</a> - Adobe, Microsoft</p>
+                    </div>
+
+                    <div class="fragment">
+                        <hr />
+                        <h2>Browser support</h2>
+                        <p>
+                            WebKit Nightly, Google Chrome "Canary", Internet Explorer 10
+                        </p>
+                    </div>
+                </section>
+                
+                <section>
+                    <h1>CSS Exclusions</h1>
+                    <img src="resources/grid_cssexclusions.png" alt="" />
+                </section>
+                
+				<section>
+                    <h2>shape-inside</h2>
+                    <h2>shape-outside</h2>
+                    <p>[ILLUSTRATION]</p>
 				</section>
+				
+                <section>
+                    <h2>Shape Inside</h2>
+                    <pre><code>
+    /* wrap the text inside a circle */
+    #content { 
+        shape-inside: circle(50px, 50px 50px)
+    }
+                </code></pre>
+                </section>
+
+                <section>
+                    <h2>Shape Outside</h2>
+                    <pre><code>
+    #content { 
+        shape-outside: circle(50px, 50px 50px)
+    }
+                </code></pre>
+                </section>
+
+                <section>
+                    <h2>Define an Exclusion</h2>
+                    <pre><code>
+    /* wrap the surrounding text around a circle */
+    #content { 
+        shape-outside: circle(50px, 50px 50px)
+        
+        /* text content goes around me */
+        wrap-flow: both;
+    }
+                </code></pre>
+                </section>
+
+                <section>
+                    <h2>More shapes</h2>
+                    <pre><code>
+    /* rounded rectangle shapes */
+    #content { 
+        shape-inside: rectangle(x, y, width, height, rx, ry)
+    }
+    
+    /* non-rectangular shapes */
+    #content { 
+        shape-inside: polygon(x1, y1 x2, y2 ... )
+    }
+                </code></pre>
+                </section>
+
+                <section>
+                    <h2>Shapes from SVG</h2>
+                    <pre><code>
+    &lt;svg ...&gt;
+        &lt;circle id=&quot;circle_shape&quot; cx=&quot;50%&quot; cy=&quot;50%&quot; r=&quot;50%&quot; /&gt;
+    &lt;/svg&gt;
+
+    #content { 
+        shape-inside: url(#circle_shape)
+    }
+                </code></pre>
+                </section>
+                
+                <section>
+                    <h1>Status</h1>
+                    <div class="fragment">
+                        <hr />
+                        <h2>Web Standard</h2>
+                        <p><a href="http://www.w3.org/TR/css3-exclusions/">W3C Working Draft</a> - Adobe, Microsoft</p>
+                    </div>
+                    <div class="fragment">
+                        <hr />
+                        <h2>Browser support</h2>
+                        <p>
+                            Google Chrome "Canary"
+                        </p>
+                    </div>
+                </section>
+                
+                <section>
+                    <h1>Web Components <em>&amp;</em> CSS Regions</h1>
+                </section>
+                
+                <section>
+                    <h2>Shadow DOM</h2>
+                    <p>Read <a href="http://www.w3.org/TR/components-intro/">Introduction to Web Components</a></p>
+                    <aside class="notes">
+                        Encapsulation, event re-parenting
+                    </aside>
+                </section>
+
+                <section> 
+                    <h2>Component</h2>
+                    <pre><code>
+    &lt;head&gt;
+        &lt;link rel=&quot;components&quot; href=&quot;magazine-component.html&quot;&gt;
+    &lt;/head&gt;
+                    </code></pre>
+                </section>
+                
+                <section> 
+                    <h2>Using it</h2>
+                    <pre><code>
+    &lt;article is=&quot;magazine&quot;&gt;
+        &lt;h1&gt;Title&lt;/h1&gt;
+        &lt;p&gt;...&lt;/p&gt;
+    &lt;/artice&gt;
+                    </code></pre>
+                </section>
+                
+                <section>
+                    <h2><a href="//html.adobe.com">html.adobe.com</a></h2>
+                    [screenshot]
+                </section>
+
+                <section>
+                    <h2><a href="//webplatform.org">WebPlatform.org</a></h2>
+                    [screenshot]
+                </section>
 
 				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Fragmented Views</h2>
-					<p>Hit the next arrow...</p>
-					<p class="fragment">... to step through ...</p>
-					<ol>
-						<li class="fragment"><code>any type</code></li>
-						<li class="fragment"><em>of view</em></li>
-						<li class="fragment"><strong>fragments</strong></li>
-					</ol>
-
-					<aside class="notes">
-						This slide has fragments which are also stepped through in the notes window.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>position: end</h1>
+					<h1>end</h1>
                     <p>
-                        <a href="http://razvancaliman.com">Razvan Caliman</a> / <a href="http://twitter.com/razvancaliman">@razvancaliman</a></small>
+                        <a href="http://razvancaliman.com">Razvan Caliman</a> / <a href="http://twitter.com/razvancaliman">@razvancaliman</a>
                     </p>
 				</section>
 			</div>
@@ -317,6 +430,7 @@ function linkify( selector ) {
 				progress: true,
 				history: true,
 				center: true,
+				rollingLinks: false,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
