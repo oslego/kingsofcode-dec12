@@ -70,7 +70,7 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #13daec;
+  color: rgb(255, 185, 0);
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -80,7 +80,7 @@ body {
 }
 
 .reveal a:not(.image):hover {
-  color: #71e9f4;
+  color: #71e9f4;   
   text-shadow: none;
   border: none;
 }
@@ -178,3 +178,30 @@ body {
   background-image: url(../../resources/grid_masked_dark.png), -webkit-linear-gradient(top, #6f518f, #8560a8);
 }
 
+.hlist{
+  display: -webkit-flex;
+  -webkit-justify-content: space-around;
+  margin: 10% 0 0;
+}
+
+.hlist > *{
+  height: 20%;
+  max-height: 25%;
+}
+
+.canvas{
+  text-align: center;
+}
+
+.reveal .tablet, .reveal .tablet-h{
+  width: 400px;
+}
+
+.reveal .tablet-h{
+ 
+}
+
+.reveal .tablet-h .visible{ 
+  display: block;
+  -webkit-transform: rotate(90deg);
+} 
