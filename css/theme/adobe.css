@@ -168,6 +168,14 @@ body {
  * Slides BG
  *********************************************/
  
+ #logo{
+   position: absolute;
+   top: 0;
+   right: 7%;
+   z-index: 99;
+   width: 1.3em;
+ }
+ 
 .reveal .state-background {
   background: #384042 center top no-repeat;
   background-image: url(../../resources/grid_masked_light.png),  -webkit-linear-gradient(top, #384042, #46494c);
@@ -176,6 +184,22 @@ body {
 .regionsbg .reveal .state-background {
   background: #6f518f top center no-repeat;
   background-image: url(../../resources/grid_masked_dark.png), -webkit-linear-gradient(top, #6f518f, #8560a8);
+}
+
+.exclusionsbg .reveal .state-background{
+  background: #4d74b3 center top no-repeat;
+  background-image: url(../../resources/grid_masked_dark.png), -webkit-linear-gradient(top, #4d74b3, #5784cb);
+}
+
+
+.toc li{
+  list-style: none;
+  padding: 0.3em 0;
+  
+}
+
+.toc :not(.current) {
+  opacity: 0.5;
 }
 
 .hlist{
@@ -190,18 +214,20 @@ body {
 }
 
 .canvas{
-  text-align: center;
+  display: -webkit-flex;
+  -webkit-justify-content: space-around;
+  min-height: 400px;
 }
 
-.reveal .tablet, .reveal .tablet-h{
-  width: 400px;
+.reveal .tablet{
+  width: 300px;     
 }
 
-.reveal .tablet-h{
- 
-}
-
-.reveal .tablet-h .visible{ 
-  display: block;
-  -webkit-transform: rotate(90deg);
+.reveal .tablet-h.visible{ 
+  -webkit-transform: rotate(90deg) translateX(20px);
+  -webkit-transform-origin: center;
 } 
+
+.tablet-h.visible~.tablet{
+  background: red;
+}

@@ -9,20 +9,22 @@
 		<meta name="description" content="An overview for using CSS Regions, Exclusions and other features to publish content on the web as digital magazines">
 		<meta name="author" content="Razvan Caliman">
 
+		<meta name="deck" content="reveal.js by Hakim el Hattab (@hakimel)">
+		
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/adobe.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/adobe.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
+        <script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
-
+		
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -33,29 +35,33 @@
 	<body>
 
 		<div class="reveal">
+		    
+            <a href="http://html.adobe.com"><img src="resources/adobelogo.svg" id="logo" alt="" /></a>
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
 				<section>
-					<h1>Digital Publishing on the Web</h1>
-					<h3>CSS Regions, CSS Exclusions and beyond</h3>
+                    <h1>Digital Publishing <br /><small>on the Web</small></h1>
+					<p>CSS Regions, Exclusions and beyond</p>
 					<p>
 						<small><a href="http://razvancaliman.com">Razvan Caliman</a> / <a href="http://twitter.com/razvancaliman">@razvancaliman</a></small>
 					</p>
 				</section>
 				
-                <section>   
+                <section>
                     <h2>Overview</h2>
                     <ul class="toc">
-                        <li>
-                            The magazine: print and digital
+                        <li class="current">
+                            Publishing: from print to digital
                         </li>
+                        
                         <li>
-                            Publishing with web standards: CSS Regions
+                            Platform: open web, HTML &amp; CSS
                         </li>
+                        
                         <li>
-                            Web standards features coming soon
+                            Packaging: one idea
                         </li>
                     </ul>
                 </section>
@@ -63,14 +69,16 @@
 				<section>
 					<h1>Paper Magazines</h1>
                     <ul>
-                        <li>Rich layout</li>
+                        <li>Rich design</li>
+                        <li>Complex layout</li>
                         <li>Crips fonts</li>
                         <li>Fixed page dimensions</li>
                     </ul>
 				</section>
 				
                 <section>
-                    <h2>Screenshots</h2>
+                    <h2>Print magazine</h2>
+                    <p>[Print magazine screenshots]</p>
                 </section>
 
                 <section>
@@ -98,12 +106,14 @@
                     <h2>Publishing on one device</h2>
                     <div class="canvas">
                         <img src="resources/noun_project_4103.svg" class="tablet" alt="Tablet computer illustration" />
-                        <img src="resources/noun_project_4103.svg" class="tablet-h fragment" alt="Tablet computer illustration" />
+                        <img src="resources/noun_project_4103.svg" class="tablet tablet-h fragment" alt="Tablet computer illustration" />
                     </div>
-                    <!-- <ul>
-                        <li>One form-factor</li>
-                        <li>Two orientations</li>
-                    </ul> -->
+                    <aside class="notes">
+                        <ul>
+                            <li>One form-factor</li>
+                            <li>Two orientations</li>
+                        </ul>
+                    </aside>
                 </section>
                 
 				<section>
@@ -114,27 +124,29 @@
                         <li>Platforms</li>
                         <li>DPI</li>
                     </ul>
-				</section>
-				
+                </section>
+
                 <section>
                     <h2>Overview</h2>
                     <ul class="toc">
                         <li class="complete">
-                            The magazine: print and digital
+                            Publishing: from print to digital
                         </li>
+                        
                         <li class="current">
-                            Publishing with web standards: CSS Regions
+                            Platform: open web, HTML &amp; CSS
                         </li>
+                        
                         <li>
-                            Web standards features coming soon
+                            Packaging: one idea
                         </li>
                     </ul>
                 </section>
-
-				<section>
-					<h1>HTML &amp; CSS</h1>
-				</section>
-				
+                
+                <section>
+                    <h1>HTML &amp; CSS</h1>
+                </section>
+                
                 <section>
                     <h2>Advantages</h2>
                     <ul>
@@ -155,7 +167,9 @@
                         <li>complex shapes</li>
                         <li>text wrap</li>
                     </ul>
-                </section> 
+                </section>
+                
+
                 
                 <section data-state="regionsbg">
                     <h1>CSS Regions</h1>
@@ -288,11 +302,6 @@
                     <img src="resources/grid_cssexclusions.png" alt="" />
                 </section>
                 
-				<section>
-                    <h2>shape-inside</h2>
-                    <h2>shape-outside</h2>
-                    <p>[ILLUSTRATION]</p>
-				</section>
 				
                 <section>
                     <h2>Shape Inside</h2>
@@ -302,22 +311,24 @@
         shape-inside: circle(50px, 50px 50px)
     }
                 </code></pre>
+                <p>[ILLUSTRATION]</p>
                 </section>
 
                 <section>
                     <h2>Shape Outside</h2>
                     <pre><code>
-    #content { 
+    #shape { 
         shape-outside: circle(50px, 50px 50px)
     }
                 </code></pre>
+                [ILLUSTATION]
                 </section>
 
                 <section>
                     <h2>Define an Exclusion</h2>
                     <pre><code>
     /* wrap the surrounding text around a circle */
-    #content { 
+    #exclusion { 
         shape-outside: circle(50px, 50px 50px)
         
         /* text content goes around me */
@@ -364,17 +375,37 @@
                             <img src="resources/chrome-canary.png" alt="Chrome Canary browser logo" />
                         </div>
                     </div>
-                </section>    
+                </section>
                 
                 <section>
-                    <h1>Web Components <em>&amp;</em> CSS Regions</h1>
+                    <h2>Overview</h2>
+                    <ul class="toc">
+                        <li class="complete">
+                            Publishing: from print to digital
+                        </li>
+
+                        <li class="complete">
+                            Platform: open web, HTML &amp; CSS
+                        </li>
+
+                        <li class="current">
+                            Packaging: one idea
+                        </li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h1>Web Components</h1>
+                    <h2>&amp; CSS Regions</h2>
                 </section>
                 
                 <section>
                     <h2>Shadow DOM</h2>
+                    <br />
+                    <p>The <code>&lt;video&gt;</code> element</p>
                     <p>Read <a href="http://www.w3.org/TR/components-intro/">Introduction to Web Components</a></p>
                     <aside class="notes">
-                        Encapsulation, event re-parenting
+                        Encapsulation, poratability, event re-parenting
                     </aside>
                 </section>
 
@@ -398,6 +429,19 @@
                 </section>
                 
                 <section>
+                    <h2>Web Components</h2>
+                    <div class="fragment">
+                        <p>Shadow DOM <a href="http://www.w3.org/TR/2012/WD-shadow-dom-20121016/">W3C Working Draft</a> - Google</p>
+                        <p>Intro to Web Components <a href="http://www.w3.org/TR/2012/WD-components-intro-20120522/">W3C Working Draft</a> - Google</p>
+                    </div>
+                    <div class="fragment">
+                        <div class="hlist">
+                            <img src="resources/chrome-canary.png" alt="Chrome Canary browser logo" />
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
                     <h2><a href="//html.adobe.com">html.adobe.com</a></h2>
                     [screenshot]
                 </section>
@@ -415,11 +459,14 @@
 				</section>
 				
                 <section>
-                    <h1>Thank you!</h1>
+                    <h2>Thank you!</h2>
                     <ul>
                         <li>
-                            <a href="http://thenounproject.com/noun/smartphone/#icon-No4101" target="_blank">Smartphone</a> designed by <a href="http://thenounproject.com/squintongreen" target="_blank">Samuel Q. Green</a> from The Noun Project
+                            <a href="http://lab.hakim.se/reveal-js/">Reveal.js</a> created by <a href="http://hakim.se">Hakim el Hattab</a>
                         </li>
+                        <!-- <li>
+                            <a href="http://thenounproject.com/noun/smartphone/#icon-No4101" target="_blank">Smartphone</a> designed by <a href="http://thenounproject.com/squintongreen" target="_blank">Samuel Q. Green</a> from The Noun Project
+                        </li> -->
                         <li>
                             <a href="http://thenounproject.com/noun/tablet/#icon-No4103" target="_blank">Tablet</a> designed by <a href="http://thenounproject.com/squintongreen" target="_blank">Samuel Q. Green</a> from The Noun Project
                         </li>
