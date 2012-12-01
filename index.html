@@ -168,18 +168,17 @@
                 
                 <section data-state="regionsbg">
                     <h1>CSS Regions</h1>
-                    <img src="resources/cssregions-illustration.png" alt="" width="50%" />
+                    <img src="resources/cssregions-illustration.png" alt="illustration of content flowing from one region to another" width="50%" />
                 </section>
                 
                 <section data-state="regionsbg">
                     <p>
-                        <img src="resources/slide_cssregions" alt="" width="100%" />
+                        <img src="resources/slide_cssregions" alt="illustration of complex layout with regions" width="100%" />
                     </p>
                 </section>
                 
                 <section data-state="regionsbg">
-                    <p>[NAMED FLOW / REGION illustration]</p>
-                    <p>[DOCUMENT FLOW breakdown]</p>
+                    <img src="resources/flow-regions.png" width="100%" alt="illustration of flows and regions" />
                 </section>
                 
                 <section data-state="regionsbg">
@@ -248,8 +247,8 @@
     var flows = document.getNamedFlows()
     var flow = flows['myFlow']
     
-    // Content collected in the named flow
-    flow.contentNodes
+    // Get the nodes collected in the named flow
+    flow.getContent()
 
     // Get the regions that render the content
     flow.getRegions()
@@ -306,7 +305,8 @@
         shape-inside: circle(50px, 50px 50px)
     }
                 </code></pre>
-                <p>[ILLUSTRATION]</p>
+                <img src="resources/shape-inside.png" alt="" height='35%'/>
+
                 </section>
 
                 <section>
@@ -314,22 +314,12 @@
                     <pre><code>
     #shape { 
         shape-outside: circle(50px, 50px 50px)
-    }
-                </code></pre>
-                [ILLUSTATION]
-                </section>
-
-                <section>
-                    <h2>Define an Exclusion</h2>
-                    <pre><code>
-    /* wrap the surrounding text around a circle */
-    #exclusion { 
-        shape-outside: circle(50px, 50px 50px)
         
-        /* text content goes around me */
+        /* text content goes around both my sides */
         wrap-flow: both;
     }
                 </code></pre>
+                <img src="resources/shape-outside.png" alt="" height='35%'/>
                 </section>
 
                 <section>
@@ -390,6 +380,23 @@
                     </ul>
                 </section>
                 
+                <section data-state="regionsbg">
+                    <h2>Placeholder Markup</h2>
+                    <pre><code>
+    &lt;!-- content: semantic markup --&gt;
+    &lt;article&gt; 
+        &lt;h1&gt;Title&lt;/h1&gt;
+        &lt;p&gt;...&lt;/p&gt;    
+    &lt;/article&gt;
+
+    &lt;!-- layout: helper markup --&gt;
+    &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;
+
+                    </code></pre>
+                </section>
+                
                 <section>
                     <h1>Web Components</h1>
                     <h2>&amp; CSS Regions</h2>
@@ -432,6 +439,7 @@
                     </div>
                     <div class="fragment">
                         <div class="hlist">
+                            <img src="resources/webkit.png" alt="Webkit browser logo" />
                             <img src="resources/chrome-canary.png" alt="Chrome Canary browser logo" />
                         </div>
                     </div>
