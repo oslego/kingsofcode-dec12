@@ -95,8 +95,6 @@ body {
  *********************************************/
 .reveal section img {
   margin: 15px;
-/*  background: rgba(255, 255, 255, 0.12);*/
-/*  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);*/
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
   -ms-transition: all .2s linear;
@@ -191,6 +189,28 @@ body {
   background-image: url(../../resources/grid_masked_dark.png), -webkit-linear-gradient(top, #4d74b3, #5784cb);
 }
 
+.photo .reveal section img{
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.15);
+}
+
+.safety .reveal h1{
+  font-size: 3.2em;
+}
+
+.resources .reveal section {
+  text-align: left;
+}
+
+.resources .reveal ul{
+  margin-left: 0;
+  padding-left: 0;
+  margin-bottom: 1em;
+}
+.resources .reveal li{
+  list-style: none;
+  padding: 0.2em 0 0 0;
+}
 
 .toc li{
   list-style: none;

@@ -43,9 +43,9 @@
 
 				<section>
                     <h1>Digital Publishing <br /><small>on the Web</small></h1>
-					<p>CSS Regions, Exclusions and beyond</p>
+					<p>CSS Regions, CSS Exclusions and Shapes</p>
 					<p>
-						<small><a href="http://razvancaliman.com">Razvan Caliman</a> / <a href="http://twitter.com/razvancaliman">@razvancaliman</a></small>
+						<a href="http://razvancaliman.com">Razvan Caliman</a> / <a href="http://twitter.com/razvancaliman">@razvancaliman</a>
 					</p>
 				</section>
 				
@@ -69,16 +69,26 @@
 				<section>
 					<h1>Paper Magazines</h1>
                     <ul>
-                        <li>Rich design</li>
+                        <li>Rich design &amp; typography</li>
                         <li>Complex layout</li>
-                        <li>Crips fonts</li>
                         <li>Fixed page dimensions</li>
                     </ul>
 				</section>
 				
-                <section>
-                    <h2>Print magazine</h2>
-                    <p>[Print magazine screenshots]</p>
+                <section data-state="photo">
+                    <img src="resources/travel/ipad_landscape_Page_4.jpg" alt="" />
+                </section>
+
+                <section data-state="photo">
+                    <img src="resources/travel/ipad_landscape_Page_6.jpg" alt="" />
+                </section>
+
+                <section data-state="photo">
+                    <img src="resources/travel/ipad_landscape_Page_5.jpg" alt="" />
+                </section>
+
+                    <section data-state="photo">
+                    <img src="resources/travel/ipad_landscape_Page_2.jpg" alt="" />
                 </section>
 				
 				<section>
@@ -150,7 +160,7 @@
                     <ul>
                         <li>open format</li>
                         <li>widespread support</li>
-                        <li>naturally adaptive</li>
+                        <li>adaptive</li>
                         <li>web standards</li>
                     </ul>
                 </section>
@@ -212,14 +222,6 @@
                     </code></pre>
                 </section>
                 
-                <section data-state='alert'>
-                    <h2><small>Regions are only</small> <br />Visual Containers</h2>
-                    <aside class="notes">
-                        No DOM manipulation (parentNode). <br />
-                        No CSS inheritance
-                    </aside>
-                </section>
-
                 <section data-state="regionsbg">
                     <h2>Markup Separation</h2>
                     <pre><code>
@@ -235,6 +237,15 @@
     &lt;div class=&quot;region&quot;&gt;&lt;/div&gt;  
 
                     </code></pre>
+                </section>
+                
+                
+                <section data-state='alert'>
+                    <h2><small>Regions are only</small> <br />Visual Containers</h2>
+                    <aside class="notes">
+                        No DOM manipulation (parentNode). <br />
+                        No CSS inheritance
+                    </aside>
                 </section>
                 
                 <section data-state="regionsbg">
@@ -397,7 +408,7 @@
                     </code></pre>
                 </section>
                 
-                <section>
+                <section data-state="safety">
                     <h1>Web Components</h1>
                     <h2>&amp; CSS Regions</h2>
                 </section>
@@ -406,7 +417,8 @@
                     <h2>Shadow DOM</h2>
                     <br />
                     <p>The <code>&lt;video&gt;</code> element</p>
-                    <p>Read <a href="http://www.w3.org/TR/components-intro/">Introduction to Web Components</a></p>
+                    <video controls="" height="400px" src="http://www.ioncannon.net/examples/vp8-webm/big_buck_bunny_480p.webm"></video>
+                    <p>Read <a href="http://glazkov.com/2011/01/14/what-the-heck-is-shadow-dom/">What the Heck is Shadow DOM?</a></p>
                     <aside class="notes">
                         Encapsulation, poratability, event re-parenting
                     </aside>
@@ -457,10 +469,52 @@
 
 				<section>
 					<h1>end</h1>
-                    <p>
+                    <h2>
                         <a href="http://razvancaliman.com">Razvan Caliman</a> / <a href="http://twitter.com/razvancaliman">@razvancaliman</a>
-                    </p>
+                    </h2>
 				</section>
+				
+                <section data-state="resources">
+                    <p>CSS Regions</p>
+                    <ul>
+                        <li>
+                            <a href="http://www.w3.org/TR/css3-regions/">CSS Regions</a> Proposal to W3C
+                        </li>
+                        <li>
+                            <a href="http://blogs.adobe.com/webplatform/">Adobe Web Platform</a> blog
+                        </li>
+                        <li>
+                            <a href="http://docs.webplatform.org/wiki/tutorials/css-regions">CSS Regions</a> tutorial
+                        </li>
+                        <li>
+                            <a href="http://html.adobe.com/webstandards/cssregions/">CSS Regions</a> on html.adobe.com
+                        </li>
+                    </ul>
+                    <p>CSS Exclusions and Shapes</p>
+                    <ul>
+                        <li>
+                            <a href="http://www.w3.org/TR/css3-exclusions/">CSS Exclusions and Shapes</a> Proposal to W3C
+                        </li>
+                        <li>
+                            <a href="http://html.adobe.com/webstandards/cssexclusions/">CSS Exclusions</a> on html.adobe.com
+                        </li>
+                        <li>
+                            <a href="http://hansmuller-webkit.blogspot.co.uk/">Hans Muller</a>'s blog
+                        </li>
+                    </ul>
+                    <p>Web Components</p>
+                    <ul>
+                        <li>
+                            <a href="http://www.w3.org/TR/components-intro/">Introduction to Web Components</a>
+                        </li>
+                        <li>
+                            <a href="http://html5-demos.appspot.com/static/webcomponents/index.html#1">Web Components</a> slides by Eric Bidelman
+                        </li>
+                    </ul>
+                    
+
+                    
+                </section>
 				
                 <section>
                     <h2>Thank you!</h2>
