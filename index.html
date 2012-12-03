@@ -96,7 +96,7 @@
                     <ul>
                         <li>Devices</li>
                         <li>Interactivity</li>
-                        <li>Personal connection</li>
+                        <li>Personal attachment</li>
                     </ul>
 				</section>
 
@@ -323,12 +323,14 @@
                 <section>
                     <h2>Shape Outside</h2>
                     <pre><code>
-    #shape { 
+    #content { /*...*/ }
+    #exclusion {
         shape-outside: circle(50px, 50px 50px)
-        
+      
         /* text content goes around both my sides */
         wrap-flow: both;
     }
+    
                 </code></pre>
                 <img src="resources/shape-outside.png" alt="" height='35%'/>
                 </section>
@@ -343,7 +345,7 @@
                 </code></pre>
                 </section>
 
-                <section>
+                <!-- <section>
                     <h2>Shapes from SVG</h2>
                     <pre><code>
     &lt;svg ...&gt;
@@ -354,7 +356,7 @@
         shape-inside: url(#circle_shape)
     }
                 </code></pre>
-                </section>
+                </section> -->
                 
                 <section>
                     <h2>CSS Exclusions <br /> and Shapes</h2>
@@ -452,21 +454,22 @@
                     </div>
                 </section>
                 
-                <section>
-                    <h2><a href="//html.adobe.com">html.adobe.com</a></h2>
-                    [screenshot]
-                </section>
-
-                <section>
-                    <h2><a href="//webplatform.org">WebPlatform.org</a></h2>
-                    [screenshot]
-                </section>
-
+        <section>
+           <div class="hlist large">
+             <img src="resources/slide_cssregions" alt="illustration of complex layout with regions" />
+             <img src="resources/grid_cssexclusions.png" alt="" />
+           </div>
+           <hr />
+           <p>+</p>
+           <p>Web Components</p>
+        </section>
+        
 				<section>
 					<h1>end</h1>
-                    <h2>
-                        <a href="http://razvancaliman.com">Razvan Caliman</a> / <a href="http://twitter.com/razvancaliman">@razvancaliman</a>
-                    </h2>
+          <h2>
+              <a href="http://twitter.com/razvancaliman">@razvancaliman</a>
+          </h2> 
+          <p><a href="//html.adobe.com">html.adobe.com</a></p>
 				</section>
 				
                 <section data-state="resources">
@@ -506,9 +509,6 @@
                             <a href="http://html5-demos.appspot.com/static/webcomponents/index.html#1">Web Components</a> slides by Eric Bidelman
                         </li>
                     </ul>
-                    
-
-                    
                 </section>
 				
                 <section>
