@@ -2,6 +2,7 @@
 **CSS Regions, CSS Exclusions and Shapes**
 
 Slides for my talk at _Kings of Code_ in Amsterdam, 2012.
+In a hurry? Grab the [PDF slides](https://speakerdeck.com/razvancaliman/digital-publishing-with-css-regions)
 
 Quick links
 

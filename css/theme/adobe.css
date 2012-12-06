@@ -235,9 +235,21 @@ body {
   opacity: 0.5;
 }
 
-.hlist{
+.hlist, .canvas{
+  display: inline-block; /* non-flexbox workaround */
   display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
   -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  -ms-justify-content: space-around;
+  -o-justify-content: space-around;
+  justify-content: space-around;
+}
+
+.hlist{
   margin: 10% 0 0;
 }
 
@@ -252,8 +264,6 @@ body {
 }
 
 .canvas{
-  display: -webkit-flex;
-  -webkit-justify-content: space-around;
   min-height: 400px;
 }
 
@@ -263,7 +273,15 @@ body {
 
 .reveal .tablet-h.visible{ 
   -webkit-transform: rotate(90deg) translateX(20px);
+  -moz-transform: rotate(90deg) translateX(20px);
+  -ms-transform: rotate(90deg) translateX(20px);
+  -o-transform: rotate(90deg) translateX(20px);
+  transform: rotate(90deg) translateX(20px);
   -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -ms-transform-origin: center;
+  -o-transform-origin: center;
+  transform-origin: center;
 } 
 
 .tablet-h.visible~.tablet{
